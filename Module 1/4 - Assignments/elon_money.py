@@ -12,10 +12,17 @@ the 20-year bonds pay 4.32%, with each compounding annually.
 """
 
 ### all your code below ###
+import math
+int_purchase=44*(10**9)
+years_for_interest_10=3.96/100
+years_for_interest_20=4.32/100
 
 
 # final answer for 10-year
-ten_year_final = None
+ten_year_final = float(int_purchase*((1+years_for_interest_10)**10))
+print(f'after 10 years, {ten_year_final:.3f} billion dollars')
 
 # final answer for 20-year
-twenty_year_final = None
+twenty_year_final = float(int_purchase*((1+years_for_interest_20)**20))
+print(f'after 20 years, {twenty_year_final:.3f} billion dollars')
+

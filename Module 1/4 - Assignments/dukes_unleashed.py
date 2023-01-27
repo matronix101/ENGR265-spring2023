@@ -10,6 +10,9 @@ Note: this problem does not require the "compounding interest" formula from the 
 
 ### Your code here ###
 
-in_state_gift = 0
+percentage_of_interest=5/100
 
-out_state_gift = 0
+in_state_gift = (30792/(percentage_of_interest))
+print(in_state_gift)
+out_state_gift = (47882/(percentage_of_interest))
+print(out_state_gift)
