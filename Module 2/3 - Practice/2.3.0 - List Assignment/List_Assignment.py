@@ -32,3 +32,9 @@ print(last_three)
 # Lastly, copy the whole list into this list:
 slicing_copy = slicing_list
 print(slicing_copy)
+
+#2.4.1
+#list_yeah=[3, 7, 2, 5, 8, 0 ,9]
+#len(list_yeah)
+#w=(len(list_yeah)//2)+1
+#print(list_yeah[w-1])
