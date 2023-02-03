@@ -33,8 +33,15 @@ print(last_three)
 slicing_copy = slicing_list
 print(slicing_copy)
 
-#2.4.1
-#list_yeah=[3, 7, 2, 5, 8, 0 ,9]
+#2.4.1 Odd Lists
+#list_yeah=[8, 2, 6 ,4 ,1 ,5 ,1 ,4 ,8 ,4]
 #len(list_yeah)
 #w=(len(list_yeah)//2)+1
 #print(list_yeah[w-1])
+
+#2.4.2 Even Lists
+#len(list_yeah)
+#x=(len(list_yeah)//2)
+#y=(list_yeah[x-1])
+#z=(list_yeah[x])
+#print((y+z)/2)
