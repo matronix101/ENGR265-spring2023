@@ -29,3 +29,5 @@ num_evens = None
 num_odds = None
 
 ### YOUR CODE BEGINS HERE ###
+print(nums)
+
