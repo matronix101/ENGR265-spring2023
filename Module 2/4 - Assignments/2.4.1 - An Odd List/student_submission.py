@@ -19,7 +19,7 @@ print("Your list is: ", odd_list)
 YOUR CODE BEGINS BELOW HERE. FILL IN THE MISSING OPERATIONS / CODE
 """
 #2.4.1 Odd Lists
-list_yeah=odd_list #[8, 2, 6 ,4 ,1 ,5 ,1 ,4 ,8 ,4]
+list_yeah=odd_list
 #len(list_yeah)
 w=(len(list_yeah)//2)+1
 a=(list_yeah[w-1])
@@ -28,8 +28,8 @@ a=(list_yeah[w-1])
 list_length = len(list_yeah) #modify this line to perform the correct operation
 
 # now calculate the middle index of the list
-middle_index = w #modify this line to perform the correct operation
-
+middle_index = list_yeah[w] #modify this line to perform the correct operation
+print(list_yeah[w])
 # use [] to access the middle element. Set it equal to middle_element
 middle_element = a  #modify this line to perform the correct operation
 
