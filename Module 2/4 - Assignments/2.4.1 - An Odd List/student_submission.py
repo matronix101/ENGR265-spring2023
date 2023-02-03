@@ -28,8 +28,8 @@ a=(list_yeah[w-1])
 list_length = len(list_yeah) #modify this line to perform the correct operation
 
 # now calculate the middle index of the list
-middle_index = w #modify this line to perform the correct operation
-#print(w)
+middle_index = w-1 #modify this line to perform the correct operation
+print(w-1)
 # use [] to access the middle element. Set it equal to middle_element
 middle_element = a  #modify this line to perform the correct operation
 
