@@ -9,7 +9,7 @@ Dr. Forsyth's Code. Do Not Modify.
 """
 # bring in randomness because we need it in our lives
 import random
-import numpy as np
+import numpy
 
 # randomly sample a distribution between 20 and 100
 random_length = int(random.uniform(20, 100))
@@ -23,10 +23,25 @@ random_list_B = random.sample(range(100), random_length)
 # use the std() method from numpy to determine which list has the largest standard deviation
 
 ### YOUR CODE HERE
+x=random_list_A
+y=random_list_B
+a=numpy.std(x)
+print(a)
+b=numpy.std(y)
+print(b)
+
+
+if a > b:
+    z=x
+    print('xDub')
+else:
+    z=y
+    print('yDub')
+print(z)
 
 # set this variable equal to the list with the largest standard deviation
 # do not modify this variable's name, you can/should adjust the contents ;)
 # e.g. longest_list_is = myList
-longest_list_is = None
+longest_list_is = z
 
 ### YOUR CODE HERE
