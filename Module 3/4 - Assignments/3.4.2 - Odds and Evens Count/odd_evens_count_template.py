@@ -45,5 +45,5 @@ while n < (len(nums)) - 1:
 print(evenz)
 print(oddz)
 # create two variables to hold the final answers
-num_evens = evenz
-num_odds = oddz
+num_evens = len(evenz)
+num_odds = len(oddz)

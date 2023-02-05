@@ -37,7 +37,7 @@ for word in words:
     if len(word) < 3:
         # place the word in the pig_latin list
         ### your code here ###
-        continue
+        word=f'{word[1:]}-{word[0]}ay'
 
     # starts with vowel, modify accordingly and put in list
     elif starts_with_vowel(word) == True:
