@@ -47,7 +47,7 @@ for word in words:
     elif starts_with_vowel(word) == True:
         # modify the word and place in pig_latin list
         ### your code here ###
-        p.append(f'{word}yay')
+        p.append(f'{word}vay')
 
     # starts with consonant, modify accordingly  and put in list
     else:
