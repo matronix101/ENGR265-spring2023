@@ -33,7 +33,7 @@ n = 0
 evenz = []
 oddz = []
 
-while n < (len(nums)) - 1:
+while n < (len(nums)) :
 
     if (nums[n]) % 2 == 0:
         evenz.append(nums[n])
