@@ -19,7 +19,7 @@ def starts_with_vowel(word):
 
 # a variable to hold the new sentence once it is created
 original_sentence = "I bombed this problem in Introduction to Programming I hope you do better"
-
+#iyay ombedbay isthay oblempray inyay introductionyay otay ogrammingpray iyay opehay ouyay oday etterbay
 # print out the original sentence
 print("The original sentence is: ", original_sentence)
 
@@ -28,7 +28,9 @@ words = original_sentence.split(" ")
 
 # create new list to hold sentence
 pig_latin = list()
-
+print(words)
+print('iyay ombedbay isthay oblempray inyay introductionyay otay ogrammingpray iyay opehay ouyay oday etterbay')
+p=pig_latin
 # iterate through words in sentence changing each element as necessary
 # put each new word in a list that we will re-assemble
 for word in words:
@@ -37,19 +39,20 @@ for word in words:
     if len(word) < 3:
         # place the word in the pig_latin list
         ### your code here ###
-        word=f'{word[1:]}-{word[0]}ay'
+        p.append(f'{word[1:]}{word[0]}ay')
+        continue
 
     # starts with vowel, modify accordingly and put in list
     elif starts_with_vowel(word) == True:
         # modify the word and place in pig_latin list
         ### your code here ###
-        continue
+        p.append(f'{word}yay')
 
     # starts with consonant, modify accordingly  and put in list
     else:
         # modify word and place in pig_latin list
         ### your code here ###
-        continue
+        p.append(f'{word[1:]}{word[0]}ay')
 
 # a new sentence in which you will re-assemble each of the modified words
 new_sentence = ""
