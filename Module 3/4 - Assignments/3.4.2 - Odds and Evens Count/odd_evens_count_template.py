@@ -1,6 +1,7 @@
 # bring in randomness cause we need it in our lives
 import random
 
+
 ### Begin Dr. Forsyth Code. Do Not Modify ###
 
 # copy in Dr. Forsyth's random list function for use
@@ -24,10 +25,25 @@ upper_bound = 1000
 # generate a random lists of integers
 nums = generate_random_int_list(max_length, upper_bound)
 
-# create two variables to hold the final answers
-num_evens = None
-num_odds = None
 
 ### YOUR CODE BEGINS HERE ###
 print(nums)
 
+n = 0
+evenz = []
+oddz = []
+
+while n < (len(nums)) - 1:
+
+    if (nums[n]) % 2 == 0:
+        evenz.append(nums[n])
+        n = n + 1
+    else:
+        oddz.append(nums[n])
+        n = n + 1
+
+print(evenz)
+print(oddz)
+# create two variables to hold the final answers
+num_evens = evenz
+num_odds = oddz
