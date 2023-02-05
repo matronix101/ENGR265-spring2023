@@ -15,8 +15,14 @@ one_odds = 0
 # the For Loop to determine even or odd.
 
 # Fill in this loop:
+
 for element in list_one:
-    dummy = None
+    if element % 2 == 0:
+        one_evens= one_evens+1
+
+for e in list_one:
+    if e % 2 ==1:
+        one_odds=one_odds+1
 
 # These statements can be used to check your work!
 print("The number of odds in list_one is: " + str(one_odds))
@@ -28,9 +34,16 @@ two_odds = 0
 
 # Now you do the rest!
 
+for e2 in list_two:
+    if e2 % 2 == 0:
+        two_evens= two_evens+1
 
+for e3 in list_two:
+    if e3 % 2 ==1:
+        two_odds=two_odds+1
 
-
+print("The number of odds in list_two is: " + str(two_odds))
+print("The number of evens in list_two is: " + str(two_evens))
 
 
 
