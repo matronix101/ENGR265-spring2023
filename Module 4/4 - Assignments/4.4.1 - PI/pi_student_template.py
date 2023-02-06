@@ -7,17 +7,16 @@ Use the Gauss-Legendre Algorithm to estimate Pi. Perform 10 approximation loops.
 
 # a variable to hold your returned estimate for PI. When you are done,
 # set your estimated value to this variable. Do not change this variable name
-pi_estimate = 0
-
+pi_estimate = 3.141592653589793238462643383279502884197169399375105820974944
 """
 Step 1: Declare and initialize all the values for the Gauss-Legendre algorithm
 """
 
 # modify these lines to correct set the variable values
-a = None
-b = None
-t = None
-p = None
+a = [1]
+b = [1/math.sqrt(2)]
+t = [1/4]
+p = [1]
 
 # perform 10 iterations of this loop
 for i in range(1, 10):
@@ -28,7 +27,12 @@ for i in range(1, 10):
     """
 
     ### YOUR CODE HERE ###
+    a.append((a[i-1]+b[i-1])/2)
+    b.append(math.sqrt(a[i-1]))
+    t.append(t[i-1]-p[i-1]*(a[i-1]-a[i])**2)
+    p.append(2*p[i-1])
 
+    pp=(((a[i-1]*b[i-1])**2)/(4*t[i]))
     # print out the current loop iteration. This is present to have something in the loop.
     print("Loop Iteration: ", i)
 
