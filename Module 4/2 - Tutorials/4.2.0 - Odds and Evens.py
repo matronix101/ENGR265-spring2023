@@ -10,55 +10,44 @@ list_two = [1, -3, -64, 25, 70, 0, 74]
 # when an even or an odd is found!
 one_evens = 0
 one_odds = 0
-even_1=[]
-odd_1=[]
-even_2=[]
-odd_2=[]
+evenz_1=[]
+oddz_1=[]
+evenz_2=[]
+oddz_2=[]
 # Hint: use if/else statements to set conditions in
 # the For Loop to determine even or odd.
 
+
 # Fill in this loop:
-
+n=0
 for element in list_one:
-    if element % 2 == 0:
-        one_evens= one_evens+1
-        while z < len(list_one):
-            even_1.append(list_one[z])
-            z=z+1
-
-for e in list_one:
-    if e % 2 ==1:
-        one_odds=one_odds+1
-        while k < len(list_one):
-            odd_1.append(list_one[k])
-            k=k+1
+    if (list_one[n]) % 2 == 0:
+        evenz_1.append(list_one[n])
+        n = n + 1
+    else:
+        oddz_1.append(list_one[n])
+        n = n + 1
 
 # These statements can be used to check your work!
-print("The number of odds in list_one is: " + str(one_odds))
-print("The number of evens in list_one is: " + str(one_evens))
+print("The number of odds in list_one is: " + str(oddz_1))
+print("The number of evens in list_one is: " + str(evenz_1))
 
 # Here are the counters for list_two:
 two_evens = 0
 two_odds = 0
 
 # Now you do the rest!
+w=0
+for elementz in list_two:
+    if (list_two[w]) % 2 == 0:
+        evenz_2.append(list_two[w])
+        w = w + 1
+    else:
+        oddz_2.append(list_two[w])
+        w = w + 1
 
-for e2 in list_two:
-    if e2 % 2 == 0:
-        two_evens= two_evens+1
-        while i < len(list_two):
-            even_2.append(list_two[i])
-            i=i+1
-
-for e3 in list_two:
-    if e3 % 2 ==1:
-        two_odds=two_odds+1
-        while u < len(list_two):
-            odd_2.append(list_two[u])
-            u=u+1
-
-print("The number of odds in list_two is: " + str(two_odds))
-print("The number of evens in list_two is: " + str(two_evens))
+print("The number of odds in list_two is: " + str(oddz_2))
+print("The number of evens in list_two is: " + str(evenz_2))
 
 
 
