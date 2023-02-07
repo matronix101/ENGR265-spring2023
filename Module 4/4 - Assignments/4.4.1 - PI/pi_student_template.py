@@ -27,12 +27,16 @@ for i in range(1, 10):
     """
 
     ### YOUR CODE HERE ###
-    a.append((a[i-1]+b[i-1])/2)
-    b.append(math.sqrt(a[i-1]))
-    t.append(t[i-1]-p[i-1]*(a[i-1]-a[i])**2)
+    a.append(((a[i-1])+(b[i-1]))/2)
+    print(a)
+    b.append(math.sqrt(a[i-1]*b[i-1]))
+    print(b)
+    t.append(t[i-1]-(p[i-1]*((a[i-1]-a[i])**2)))
+    print(t)
     p.append(2*p[i-1])
+    print(p)
 
-    pp=(((a[i-1]*b[i-1])**2)/(4*t[i]))
+    pp=(((a[i]+b[i])**2)/(4*t[i]))
     # print out the current loop iteration. This is present to have something in the loop.
     print("Loop Iteration: ", i)
 
@@ -41,7 +45,7 @@ Step 3: After iterating 10 times, calculate the final value for PI
 """
 
 # modify this line below to estimate PI
-pi_estimate = None
+pi_estimate = pp
 
 print("Final estimate for PI: ", pi_estimate)
 print("Error on estimate: ", abs(pi_estimate - math.pi))
