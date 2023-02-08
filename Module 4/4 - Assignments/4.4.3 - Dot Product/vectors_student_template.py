@@ -23,12 +23,20 @@ vector_b = generate_random_int_list(fixed_length, maximum_value)
 """
 Step 2: Iterate through the vector(s) and calculate the dot product
 """
-
+print(vector_a)
+print(vector_b)
 # store your result here. Do not change the name
 dot_product = 0
-
+d_p=[]
+i=0
 ### Your code here
+while i < len(vector_a):
+    d_p.append(vector_a[i]*vector_b[i])
+    o=sum(d_p)
+    i=i+1
 
+dot_product=o
+print(o)
 """
 Step 3: Calculate the error of your dot_product compared with numpy's solution
 """
