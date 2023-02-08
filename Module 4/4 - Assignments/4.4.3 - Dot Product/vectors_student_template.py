@@ -36,7 +36,7 @@ while i < len(vector_a):
     i=i+1
 
 dot_product=o
-print(o)
+print(dot_product)
 """
 Step 3: Calculate the error of your dot_product compared with numpy's solution
 """
