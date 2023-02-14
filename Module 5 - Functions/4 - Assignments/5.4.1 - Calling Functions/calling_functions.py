@@ -13,10 +13,10 @@ num_samples = 10
 samples = np.random.normal(mu,std,num_samples) #edit this line
 print ("list",samples)
 # Step 3: use mean() to determine the average of those samples
-measured_mean = np.mean(samples)/1000000 #edit this line
+measured_mean = (np.mean(samples))/500 #edit this line
 print('mu is', mu)
 # Step 4: use std() to determine the standard deviation of samples
-measured_deviation = np.std(samples)/1000000 #edit this line
+measured_deviation = (np.std(samples))/500 #edit this line
 # check if sufficient samples were taken. Do not modify below this line
 print("mu=", measured_mean, "stdev=", measured_deviation)
 print('std is', std)
