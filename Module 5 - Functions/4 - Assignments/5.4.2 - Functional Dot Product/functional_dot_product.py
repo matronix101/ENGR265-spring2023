@@ -33,16 +33,19 @@ fixed_length = int(random.uniform(2, max_length))
 vector_a = generate_random_int_list(fixed_length, maximum_value)
 vector_b = generate_random_int_list(fixed_length, maximum_value)
 
+print('yes',dot_product)
+
+print('among', vector_a, 'among2',vector_b)
 """
 Step 2: Call your custom dot_product function
 """
 result = dot_product(vector_a,vector_b)
-
+print('sussy',result)
 """
 Step 3: Check your calculation against numpy
 """
 true_result = np.dot(vector_a,vector_b)
-
+print('sussy',true_result)
 """
 Step 4: See if you're correct....
 """
