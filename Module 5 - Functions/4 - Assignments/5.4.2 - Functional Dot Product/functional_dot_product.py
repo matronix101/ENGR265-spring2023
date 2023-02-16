@@ -10,6 +10,7 @@ def generate_random_int_list(list_length, upper_bound):
     # return the generated list
     return randoms
 
+
 def dot_product(a,b):
     """
     A custom function to calculate the dot product of two lists
@@ -19,10 +20,16 @@ def dot_product(a,b):
     """
 
     ### YOUR CODE HERE ###
-
-
+    a=vector_a
+    b=vector_b
+    i=0
+    d_p_list=[]
+    while i < len(vector_a):
+        d_p_list.append(vector_a[i] * vector_b[i])
+        i= i+1
+        new_d_p=sum(d_p_list)
     ### CHANGE THIS RETURN VALUE. IT IS HERE SO THE CODE DOES NOT ERROR
-    return None
+    return new_d_p
 
 """
 Step 1: Generate two "vectors" of equal length but full of random values
@@ -32,8 +39,6 @@ maximum_value = 100
 fixed_length = int(random.uniform(2, max_length))
 vector_a = generate_random_int_list(fixed_length, maximum_value)
 vector_b = generate_random_int_list(fixed_length, maximum_value)
-
-print('yes',dot_product)
 
 print('among', vector_a, 'among2',vector_b)
 """
