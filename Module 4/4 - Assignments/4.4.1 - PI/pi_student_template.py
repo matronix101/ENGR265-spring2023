@@ -17,7 +17,7 @@ a = [1]
 b = [1/math.sqrt(2)]
 t = [1/4]
 p = [1]
-
+pp = []
 # perform 10 iterations of this loop
 for i in range(1, 10):
     """

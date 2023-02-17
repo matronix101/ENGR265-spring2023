@@ -20,14 +20,12 @@ def dot_product(a,b):
     """
 
     ### YOUR CODE HERE ###
-    a=vector_a
-    b=vector_b
     i=0
-    d_p_list=[]
-    while i < len(vector_a):
-        d_p_list.append(vector_a[i] * vector_b[i])
+    poop=0
+    while i < len(a):
+        poop = (a[i] * b[i]) + poop
         i= i+1
-        new_d_p=sum(d_p_list)
+    new_d_p=poop
     ### CHANGE THIS RETURN VALUE. IT IS HERE SO THE CODE DOES NOT ERROR
     return new_d_p
 
