@@ -219,7 +219,7 @@ if __name__ == "__main__":
         max_valuez = hBurg_city_max[dis_damax+1]
 
         #\print('maxcases',hBurg_city_max[dis_damax+1])
-        #\\\ Prints the max value
+        #\\\ Prints the max value by matching the case of value and area
         for yes in range(int(len(countyz))):
             if (countyz[yes] == area_of_max) and (casesz[yes+0] == max_valuez):
                 print(f'The most amount of cases in {area_of_max}')
@@ -234,7 +234,7 @@ if __name__ == "__main__":
                 print(f'from {(data[yes_2]).date}')
                 printerz(yes_2)
                 print()
-
+    #\\\Finds the max day and the most amount of cases in a week
     max_finder("Harrisonburg city")
     max_finder("Rockingham")
 
