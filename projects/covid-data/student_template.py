@@ -242,5 +242,7 @@ if __name__ == "__main__":
     # write code to address the following question:
     # What was the worst seven day period in either the city and county for new COVID cases? This is the 7-day period where the number of new cases was maximal.
     ####IF THIS IS WRONG GO TO LINE 204 and change +1 to either +0 or +2
-    
+    print('If this does not work or slightly incorrect refer to the comments near the bottom of the code for each question, hopefully I am right the first time')
+    print('Also I should have asked earlier in the week, but from the data that was given, I read the cases data as the total amount of cases, not the amount of cases on that day')
+    print('Also I did judge that the new amount of cases in a day based on comparing the current day - previous day')
 
