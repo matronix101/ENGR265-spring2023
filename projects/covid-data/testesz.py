@@ -123,16 +123,16 @@ if __name__ == "__main__":
             " FIPS: ", point.fips, " Cases: ", point.cases, " Deaths: ", point.death)
         return ok
 
-    #\\\ Empty list that will have the location of each category. This is only solving the first problem
+    #\\\ Empty list that will have the location of each category
     datez = []
     countyz = []
     statez = []
     flipz = []
     casesz = []
     deathz = []
-    #\\\ A while loop to find and seperate all the data in VA. This is only solving the first problem
+    #\\\ A while loop to find and seperate all the data in VA
     n = 0
-    while n <= len(data)/6:
+    while n <= len(data)-1:
         datez.append((data[n]).date)
         countyz.append((data[n]).county)
         statez.append((data[n]).state)
@@ -140,32 +140,104 @@ if __name__ == "__main__":
         casesz.append((data[n]).cases)
         deathz.append((data[n]).death)
         n = n + 1
-    hburg_county = []
-    rockingham_county = []
+    #\print (datez)
+    #\print (countyz)
+    #\print (statez)
+    #\print (flipz)
+    #\print (casesz)
+    #\print (deathz)
 
-    for HBURG in range(len(data)):
-        if (data[HBURG]).county == "Harrisonburg City":
-            hburg_county.append((data[HBURG]).cases)
-    print(hburg_county)
     # write code to address the following question:
     # When was the first positive COVID case in Rockingham County? When was the first in Harrisonburg?
-
-    #\\\ Uses the previous definition function to find the first Rockingham County one
-    first_RC=countyz.index('Rockingham')
-    print('The first case in Rockingham County')
-    printerz(first_RC)
-
-    # \\\ Uses the previous definition function to find the first Harrisonburg one
-    first_Hbrug=countyz.index('Harrisonburg city') #\\\ Man I was typing in Harrisonburg like a fool not Harrisonburg City
-    print('The first case in Harrisonburg City')
-    printerz(first_Hbrug)
-    #\\\ Gangster first one done
 
     # write code to address the following question:
     # What day was the greatest number of new daily cases recorded in Harrisonburg? When was the greatest day in Rockingham County?
 
+    ####IF THIS IS WRONG GO TO SECTION (#\\\ Prints the max value by matching the case of value and area) (LINE 224) and change +0 to either +1 or -1
 
     # write code to address the following question:
+
     # What was the worst seven day period in either the city and county for new COVID cases? This is the 7-day period where the number of new cases was maximal.
+    ####IF THIS IS WRONG GO TO SECTION (#\\\Most amount of new cases in a week) (LINE 203) and change +1 to either +0 or +2
+
+    #\\\ Definition function that will locate the first case, the greatest amount of new daily cases, and worst week
+    #\\\ based on the input county (or city cause of "Harrisonburg city")
+    #\\\ and you can put in a differient city if you want
+    #\\\ delete the #\print cases if you want to see the progress
+    def max_finder(area_of_max):
+
+        #\\\Generates empty lists
+        hBurg_city = []
+        hBurg_city_max = []
+        max_finder = []
+
+        #\\\First Case finder
+        first_case = countyz.index(area_of_max)
+        print(f'First case in {area_of_max}')
+        printerz(first_case)
+        print()
+
+        #\\\ City finder
+        for yes in range(int(len(countyz))):
+            if countyz[yes] == area_of_max:
+                hBurg_city.append(yes)
+
+        #\\\Change in cases finder to find only the change in daily cases
+        for hburg_max in range(len(hBurg_city)):
+            hBurg_city_max.append(casesz[hBurg_city[hburg_max]])
+        for delta_cases in range(len(hBurg_city_max)):
+            max_finder.append(hBurg_city_max[delta_cases]-hBurg_city_max[delta_cases-1])
+        max_finder.pop(0)
+        #\print('Deltaz',max_finder)
+
+        #\\\Most amount of new cases in a week
+        mega_max_finder=[]
+        counter = 6 #from 0~6 = 7 total
+        #\print('this is the real list', hBurg_city_max)
+        for counter in range(len(max_finder)):
+            mega_max_finder.append(max_finder[counter]+max_finder[counter-1]+max_finder[counter-2]+max_finder[counter-3]+max_finder[counter-4]+max_finder[counter-5]+max_finder[counter-6])
+        mega_max_finder = mega_max_finder[6:]
+        #\print('dis da mega max list',mega_max_finder)
+        #\print(('fr dis da max',max(mega_max_finder)))
+        week_max=max(mega_max_finder)
+        weeks_location=mega_max_finder.index(week_max)+1
+        #\print('weeklcoation',weeks_location)
+        weekly_max=hBurg_city_max[weeks_location]
+        #\print(weekly_max)
+        #\print(hBurg_city_max)
+        #\print('max_finder')
+        #\print(max_finder)
+
+        #\\\Finds the location of the most amount of cases in a week
+        #\print(hBurg_city_max)
+        max_of_hburg = max(max_finder)
+        #\print('Delta max of hbrug',max_of_hburg)
+        #\print('dis a len of teh maxlist',len(max_finder))
+        dis_damax=max_finder.index(max_of_hburg)
+        #\print('loc of da amx', dis_damax)
+        max_valuez = hBurg_city_max[dis_damax+1]
+        #\print('maxcases',hBurg_city_max[dis_damax+1])
 
 
+        #\\\ Prints the max value by matching the case of value and area
+        for yes in range(int(len(countyz))):
+            if (countyz[yes] == area_of_max) and (casesz[yes+0] == max_valuez):
+                print(f'The most amount of cases in {area_of_max}')
+                printerz(yes)
+                print(max_of_hburg,'Cases')
+                print()
+
+        #\\\Prints weekly max value
+        for yes_2 in range(int(len(countyz))):
+            if (countyz[yes_2] == area_of_max) and (casesz[yes_2] == weekly_max):
+                print(f'The most amount of cases in a week in {area_of_max} starts on ')
+                print(f'from {(data[yes_2]).date} +6 more days (I could not find the right day the week would end)')
+                printerz(yes_2)
+                print()
+
+    print('If this does not work or slightly incorrect refer to the comments near each question, hopefully I am right the first time')
+    print('Also I should have asked earlier in the week, but from the data that was given, I read the cases data as the total amount of cases, not the amount of cases on that day')
+    print('Also I did judge that the new amount of cases in a day based on comparing the current day - previous day')
+    print()
+    max_finder("Harrisonburg city")
+    max_finder("Rockingham")
