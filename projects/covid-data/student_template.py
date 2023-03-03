@@ -103,6 +103,11 @@ def parse_nyt_data(file_path=''):
 
     return covid_data
 
+def printerz(location):
+    point = data[location]
+    ok =print("Data: ", point.date, " County: ", point.county, " State: ", point.state,
+        " FIPS: ", point.fips, " Cases: ", point.cases, " Deaths: ", point.death)
+    return ok
 
 
 if __name__ == "__main__":
@@ -117,11 +122,6 @@ if __name__ == "__main__":
 
     #\\\ Thank you for the hint Dr. Forsyth imma just borrow and adjust it for a
     #\\\ Definition loop that will print the exact location here
-    def printerz(location):
-        point = data[location]
-        ok =print("Data: ", point.date, " County: ", point.county, " State: ", point.state,
-            " FIPS: ", point.fips, " Cases: ", point.cases, " Deaths: ", point.death)
-        return ok
 
     #\\\ Empty list that will have the location of each category
     datez = []
@@ -132,7 +132,7 @@ if __name__ == "__main__":
     deathz = []
     #\\\ A while loop to find and seperate all the data in VA
     n = 0
-    while n <= len(data)-1:
+    while n < len(data):
         datez.append((data[n]).date)
         countyz.append((data[n]).county)
         statez.append((data[n]).state)

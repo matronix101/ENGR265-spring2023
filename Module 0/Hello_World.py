@@ -11,62 +11,47 @@
 # After your first run, try it out for yourself!
 
 # YOUR CODE HERE #
-"""Exercise 5.3 Date Types and Multiple Returns.
+
+"""Exercise 6.3 Even More Basketball Stats.
 
 Author: Matrix Chen
-Version: 02/23/2023
+Version: 03/02/2023
 
 Honor Code and Acknowledgments:
     This work complies with the JMU Honor Code.
 """
 
-wk = (2, 3, 4, 5, 6)
 
-s1 = (9, 10, 11)
-s2 = (1, 2, 12)
-s3 = (3, 4, 5)
-s4 = (6, 7, 8)
-
-
-def date_analysis(, b, c):
-    """Generate date responses based on day, # month, and # day.
+def print_stats(yes):
+    """Printing out JMU basketball player stats.
 
     Args:
-        day (str): The phrase to print what type of day it is.
-        season (str): The phrase to print what season it is.
-        quarter (str): The phrase to print what quarter it is
+        yes (list): List of JMU womens basketball stats.
 
+    Returns:
+        s (str): Stats of JMU basketball and total stats.
     """
-    if (a == 1) or (a == 7):
-        a1 = ('weekend')
-    elif (a >= 2) and (a <= 6):
-        a1 = ('weekday')
-    else:
-        a1 = ('invalid')
+    totp = 0
+    totr = 0
+    tota = 0
+    for among in range(len(yes)):
+        part = yes[among]
+        n = part[0]
+        p = int(part[1])
+        r = int(part[2])
+        a = int(part[3])
+        totp = totp + p
+        totr = totr + r
+        tota = tota + a
+        p1 = f'{n} scored {p} points,'
+        s1 = (f'{p1} grabbed {r} rebounds, and made {a} assists.')
+        print(s1)
+    s2 = (f'Total Points: {totp}')
+    print(s2)
+    s3 = (f'Total Rebounds: {totr}')
+    print(s3)
+    s4 = (f'Total Assists: {tota}')
+    print(s4)
 
-    if b in s1:
-        b1 = ('Fall')
-    elif b in s2:
-        b1 = ('Winter')
-    elif b in s3:
-        b1 = ('Spring')
-    elif b in s4:
-        b1 = ('Summer')
-    else:
-        b1 = ('Invalid')
 
-    if c <= 0:
-        c1 = 0
-    elif c > 0 and c <= 7:
-        c1 = 1
-    elif c > 7 and c <= 14:
-        c1 = 2
-    elif c > 14 and c <= 21:
-        c1 = 3
-    elif c > 21 and c <= 28:
-        c1 = 4
-    else:
-        c1 = 5
-
-    w = (a1, b1, c1)
-    return w
+print_stats([('Emil',60,60,60)])
