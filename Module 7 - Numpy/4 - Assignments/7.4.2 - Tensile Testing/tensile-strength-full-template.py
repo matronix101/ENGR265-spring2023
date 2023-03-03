@@ -136,7 +136,7 @@ def calculate_elastic_modulus(strain, stress):
     # save the slope and intercept so we can plot the line later
 
     # uncomment the line below and call np.polyfit
-    slope, intercept = np.polyfit(linear_stress,linear_strain,1)
+    slope, intercept = np.polyfit(linear_strain,linear_stress,1)
     return linear_index, slope, intercept
 
 if __name__ == "__main__":
