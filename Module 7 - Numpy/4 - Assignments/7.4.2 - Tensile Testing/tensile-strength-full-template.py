@@ -82,10 +82,10 @@ def calculate_max_strength_strain(strain, stress):
     """
 
     # calculate the maximum stress experienced
-    ultimate_tensile_stress = max(strain)
+    ultimate_tensile_stress = max(stress)
 
     # calculate the maximum strain experienced
-    fracture_strain = min(strain)
+    fracture_strain = max(strain)
 
     return ultimate_tensile_stress, fracture_strain
 
