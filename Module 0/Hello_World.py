@@ -12,46 +12,36 @@
 
 # YOUR CODE HERE #
 
-"""Exercise 6.3 Even More Basketball Stats.
+"""Exercise 6.4 Street Addresses.
 
 Author: Matrix Chen
-Version: 03/02/2023
+Version: 03/05/2023
 
 Honor Code and Acknowledgments:
     This work complies with the JMU Honor Code.
 """
 
 
-def print_stats(yes):
+def encode(name, move):
     """Printing out JMU basketball player stats.
 
     Args:
-        yes (list): List of JMU womens basketball stats.
+        name (str): The name of the adress.
+        move (int): The shift in the string.
 
     Returns:
-        s (str): Stats of JMU basketball and total stats.
+        neo (str): The inital string shifted.
     """
-    totp = 0
-    totr = 0
-    tota = 0
-    for among in range(len(yes)):
-        part = yes[among]
-        n = part[0]
-        p = int(part[1])
-        r = int(part[2])
-        a = int(part[3])
-        totp = totp + p
-        totr = totr + r
-        tota = tota + a
-        p1 = f'{n} scored {p} points,'
-        s1 = (f'{p1} grabbed {r} rebounds, and made {a} assists.')
-        print(s1)
-    s2 = (f'Total Points: {totp}')
-    print(s2)
-    s3 = (f'Total Rebounds: {totr}')
-    print(s3)
-    s4 = (f'Total Assists: {tota}')
-    print(s4)
+    blank = ''
+    for count in name:
+        if ord(count) > 65 and ord(count) < 91:
+            blank = blank + chr(((ord(count) - 97 + move) % 26) + 97)
+        if ord(count) > 96 and ord(count) < 123:
+            blank = blank + chr(((ord(count) - 97 + move) % 26) + 97)
+        else:
+            blank = blank + count
 
-
-print_stats([('Emil',60,60,60)])
+    neo = blank
+    return neo
+if __name__ == "__main__":
+    print(encode("this shouldn't change", 0))
