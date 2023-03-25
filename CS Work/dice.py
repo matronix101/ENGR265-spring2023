@@ -26,10 +26,10 @@ def roll_dice(dices, random_number=0):
 
     '''If more than 10 die or less than 1 die'''
     if (dies < 1) and (dies > 10):
-        dice_list = [6]
+        dice_list = []
     '''If between 1 and 10 die'''
     if (dies > 0) and (dies < 11):
-        for i in range(dies+1):
+        for i in range(dies):
             new_dice = random.randint(1, 6)
             dice_list.append(new_dice)
     '''If nothing is input'''
@@ -43,10 +43,11 @@ def roll_dice(dices, random_number=0):
 def are_valid(rand_list):
     """Validate Dice.
 
-        Args:
-            rand_list (list): The list of dies.
-        Returns:
-            True if the list is acceptable, False if the list is unacceptable.
+    Args:
+        rand_list (list): The list of dies.
+
+    Returns:
+        True if the list is acceptable, False if the list is unacceptable.
     """
     acceptable_die = [1, 2, 3, 4, 5, 6]
     list_len = len(rand_list)
@@ -61,19 +62,20 @@ def are_valid(rand_list):
 
     if counter_valid == list_len:
         return True
-    else:
+
+    if counter_valid != list_len:
         return False
 
 
 def count_values(dies, check=None):
     """Counting Dice Occurrences.
 
-        Args:
-            dies (list): The list of dies.
-            check (int): The number to check.
+    Args:
+        dies (list): The list of dies.
+        check (int): The number to check.
 
-        Returns:
-            counter _value (int): The amount of occurrences.
+    Returns:
+        counter _value (int): The amount of occurrences.
     """
     counter_value = 0
     '''Counting occurrences'''
@@ -83,19 +85,18 @@ def count_values(dies, check=None):
 
     if (len(dies) < 1) or (len(dies) > 10) or (check is None):
         counter_value = -1
-        return counter_value
-    else:
-        return counter_value
+
+    return counter_value
 
 
 def add_values(dies_list):
     """Summing Dice.
 
-        Args:
-            dies_list (list): The list of dies.
+    Args:
+        dies_list (list): The list of dies.
 
-        Returns:
-            total_sum (int): The sum of dies.
+    Returns:
+        total_sum (int): The sum of dies.
     """
     if (len(dies_list) > 0) and (len(dies_list) < 11):
         if are_valid(dies_list) is True:
