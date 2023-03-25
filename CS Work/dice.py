@@ -26,7 +26,7 @@ def roll_dice(dices, random_number=0):
 
     '''If more than 10 die or less than 1 die'''
     if (dies < 1) and (dies > 10):
-        dice_list = []
+        dice_list = [6]
     '''If between 1 and 10 die'''
     if (dies > 0) and (dies < 11):
         for i in range(dies):
@@ -101,7 +101,6 @@ def add_values(dies_list):
     if (len(dies_list) > 0) and (len(dies_list) < 11):
         if are_valid(dies_list) is True:
             total_sum = sum(dies_list)
-            return total_sum
         if are_valid(dies_list) is False:
             total_sum = -1
-            return total_sum
+    return total_sum
