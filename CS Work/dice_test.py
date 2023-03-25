@@ -12,8 +12,6 @@ import chuck_a_luck
 import test_chuck_a_luck
 import dice
 
-import dice
-
 
 def test_roll_dice():
     assert dice.roll_dice() == [4, 4, 1]
