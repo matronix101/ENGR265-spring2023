@@ -8,7 +8,7 @@ path = '../../../data/ekg/mitdb_201.csv'
 # load data in matrix from CSV file; skip first two rows
 
 ### Your code here ###
-
+open(path)
 # save each vector as own variable
 
 ### Your code here ###
