@@ -9,11 +9,14 @@ def main(filepath):
         return list()
 
     # import the CSV file using numpy
-    path = filepath
+    np.loadtxt(filepath)
 
     # load data in matrix from CSV file; skip first two rows
     ## your code here
-
+    test_data = []
+    fin = open(filepath)
+    fin.readline()
+    fin.readline()
     # save each vector as own variable
     ## your code here
 
