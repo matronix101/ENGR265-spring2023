@@ -1,4 +1,5 @@
 import numpy as np
+import scipy.signal
 from scipy.signal import find_peaks, butter
 
 from ekg_testbench import EKGTestBench
@@ -9,20 +10,18 @@ def main(filepath):
         return list()
 
     # import the CSV file using numpy
-    np.loadtxt(filepath)
+    path = filepath
 
-    # load data in matrix from CSV file; skip first two rows
-    ## your code here
-    test_data = []
-    fin = open(filepath)
-    fin.readline()
-    fin.readline()
     # save each vector as own variable
     ## your code here
+    opener = np.loadtxt(path, delimiter=',', skiprows=2)
+    time = opener[:, 0]
+    v5 = opener[:, 1]
+    v2 = opener[:, 2]
 
     # identify one column to process. Call that column signal
-
-    signal = -1 ## your code here
+    signal = v2
+    ## your code here
 
     # pass data through LOW PASS FILTER (OPTIONAL)
     ## your code here
@@ -32,19 +31,22 @@ def main(filepath):
 
     # pass data through differentiator
     ## your code here
+    diff_signal = np.diff(signal)
 
     # pass data through square function
     ## your code here
+    square_signal = np.square(diff_signal)
 
     # pass through moving average window
     ## your code here
+    mov_avg_signal=np.convolve(square_signal,1)
 
     # use find_peaks to identify peaks within averaged/filtered data
+
     # save the peaks result and return as part of testbench result
 
     ## your code here peaks,_ = find_peaks(....)
-
-    peaks = None
+    peaks, _ = scipy.signal.find_peaks(mov_avg_signal)
 
     # do not modify this line
     return signal, peaks
