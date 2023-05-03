@@ -1,8 +1,7 @@
 import numpy as np
-import scipy.signal
-from scipy.signal import find_peaks, butter
-
+from scipy.signal import find_peaks,butter
 from ekg_testbench import EKGTestBench
+from scipy.signal import lfilter
 
 
 def main(filepath):
@@ -25,31 +24,50 @@ def main(filepath):
 
     # pass data through LOW PASS FILTER (OPTIONAL)
     ## your code here
-
+    detection_threshold = (25-0)
+    # set a heart beat time out
+    detection_time_out = (60+0)
+    b, a = butter(3, (detection_threshold/(.505*detection_time_out)) , btype = 'low', analog=False)
+    signal = lfilter((b*1), (a*1), signal)
     # pass data through HIGH PASS FILTER (OPTIONAL) to create BAND PASS result
-    ## your code here
 
+    detection_threshold = (600-1)/(len(signal))
+    # set a heart beat time out
+    detection_time_out = (60+.9)
+    b, a = butter(4, (detection_threshold/(.49*detection_time_out)) , btype = 'high', analog=False)
+    signal = lfilter(b, a, signal)
     # pass data through differentiator
+
     ## your code here
-    diff_signal = np.diff(signal)
+    detection_threshold = (600-1)/len(signal)
+    # set a heart beat time out
+    detection_time_out = (60+.9)
+    b, a = butter(3, (detection_threshold/(.49*detection_time_out)) , btype = 'high', analog=False)
+    signal = lfilter(b, a, signal)
+    # pass data through differentiator
+
+    ## your code here
+    diff_signal = 1.15*np.diff(signal)
 
     # pass data through square function
     ## your code here
-    square_signal = np.square(diff_signal)
+    square_signal = 1.006*np.power(diff_signal,2)
 
     # pass through moving average window
     ## your code here
-    mov_avg_signal=np.convolve(square_signal,1)
+    arr_ones = np.ones(12)
+    mov_avg_signal=np.convolve(square_signal,arr_ones)
+    mov_avg_signal = (mov_avg_signal*1.327)/(len(arr_ones))
 
     # use find_peaks to identify peaks within averaged/filtered data
 
     # save the peaks result and return as part of testbench result
 
     ## your code here peaks,_ = find_peaks(....)
-    peaks, _ = scipy.signal.find_peaks(mov_avg_signal)
+    peaks, _ = find_peaks(mov_avg_signal,height = detection_threshold*(.9), distance = detection_time_out+(100))
 
     # do not modify this line
-    return signal, peaks
+    return mov_avg_signal, peaks
 
 
 # when running this file directly, this will execute first
@@ -59,7 +77,7 @@ if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
     # database name
-    database_name = 'mitdb_201'
+    database_name = 'mitdb_100'
 
     # set to true if you wish to generate a debug file
     file_debug = True
