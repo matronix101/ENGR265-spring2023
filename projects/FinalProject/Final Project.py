@@ -1,12 +1,8 @@
 import json
-import os
-import numpy as np
-import pandas as pd
-from IPython.display import display
-import plotly.graph_objs as go
 from datetime import datetime, timedelta
-from IPython.display import display, HTML
-from sklearn.datasets import load_iris
+import pandas as pd
+import plotly.graph_objs as go
+import webbrowser
 
 # /// Gathering the Data from the JSON files into a Dataframe \\\
 
@@ -62,7 +58,8 @@ def one_time(data):
 
 # /// Generating Filters \\\
 # Since there is no perfect filter that can be applied for all, what can be done is having the user choose their filter
-# The filters given are, (1) Date Bounds, (2) If the Song was Skipped, (3) If the Song was Not Skipped
+# The filters given are, (1) Date Bounds, (2) If the Song was Skipped, (3) If the Song was Not Skipped,
+# (4) If the artist is unknown
 
 # Filter #1: Date Bounds
 # From given dates, a bound will be made so that it will only return the data that is within the dates
@@ -98,12 +95,22 @@ def not_skipped(data):
     return data_filter
 
 
+# Filter #4: Unknown Artist
+# If the artist is one that has never been heard within the past month, it would filter the artists
+def artist(data):
+    artist_data = data
+    artist_data = artist_data.drop_duplicates(subset=["master_metadata_album_artist_name"])
+    return artist_data
+
+
 # /// Combining Filters \\\\
 def combined_filters():
-    unique_filter = one_time(combined_df)
-    date_filter = date_bounds(unique_filter, start_date, end_date)
-    unkskiped_filter = not_skipped(date_filter) # The chosen filter was if it was not skipped
-    return unkskiped_filter
+    unique_filter = one_time(combined_df)  # Unique filter
+    date_filter = date_bounds(unique_filter, start_date, end_date)  # Date Bound filter
+    final_filter = not_skipped(date_filter)  # Not Skipped filter
+    # Unknown Artist Filter (comment out if the artist was listen to already)
+    final_filter = artist(final_filter)  # Artist Filter
+    return final_filter  # Dependent on which is the last filter is used
 
 
 # /// Reformatting Results \\\
@@ -119,7 +126,8 @@ def reformating():
 
 
 # /// Displaying the results \\\
-
+# Now it is time to have the results be placed in a grid that can be easily seen, these parameters will be formatting
+# the grid and make it look nice
 def display_data(df):
     headerColor = 'lightgray'
     rowEvenColor = 'lightblue'
@@ -131,7 +139,8 @@ def display_data(df):
             line_color='black',
             fill_color=headerColor,
             align=['left'],
-            font=dict(color='black', size=12)
+            font=dict(color='black', size=12),
+            line=dict(color='black', width=1)
         ),
         cells=dict(
             values=[
@@ -139,18 +148,19 @@ def display_data(df):
                 df["Song Title"],
                 df["Artist"],
             ],
-            # line_color='black',
-            # 2 dimensional list
             fill_color=[[rowOddColor if i % 2 == 0 else rowEvenColor for i in range(len(df))] * len(df.columns)],
             align=['left'],
-            font=dict(color='black', size=11)
+            font=dict(color='black', size=11),
+            line=dict(color='black', width=1)
         ))
     ])
-
     fig.update_layout(width=500, height=1000)
     fig.show()
 
 
+# /// Run Everything \\\
+# Finally everything will work together and display the results
 if __name__ == '__main__':
-    print(reformating())
     display_data(reformating())
+    link = "https://open.spotify.com/search"
+    webbrowser.open(link)
