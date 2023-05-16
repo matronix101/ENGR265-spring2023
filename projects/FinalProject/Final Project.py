@@ -8,13 +8,11 @@ import webbrowser
 
 # Manually upload the paths of each json file, your file names should be called endsong_0.json~endsong_3.json,
 # and endvideo.json, remember to save them as strings or else it won't work
-path_0 = 'C:\\Users\\asian\\Downloads\\ENGR265-spring2023\\projects\\FinalProject\\my_spotify_data\\MyData\\endsong_0.json'
+path_0 = "C:\\Users\\asian\\Downloads\\ENGR265-spring2023\\projects\\FinalProject\\my_spotify_data\\MyData\\endsong_0.json"
 path_1 = 'C:\\Users\\asian\\Downloads\\ENGR265-spring2023\\projects\\FinalProject\\my_spotify_data\\MyData\\endsong_1.json'
 path_2 = 'C:\\Users\\asian\\Downloads\\ENGR265-spring2023\\projects\\FinalProject\\my_spotify_data\\MyData\\endsong_2.json'
 path_3 = 'C:\\Users\\asian\\Downloads\\ENGR265-spring2023\\projects\\FinalProject\\my_spotify_data\\MyData\\endsong_3.json'
 path_4 = 'C:\\Users\\asian\\Downloads\\ENGR265-spring2023\\projects\\FinalProject\\my_spotify_data\\MyData\\endvideo.json'
-list_of_paths = [path_0, path_1, path_2, path_3, path_4]
-
 
 # This definition function will be used to just grab and combine all the data from each path
 def data_getters(path):
@@ -127,9 +125,9 @@ def reformating():
 
 # /// Displaying the results \\\
 # Now it is time to have the results be placed in a grid that can be easily seen, these parameters will be formatting
-# the grid and make it look nice
+# the grid and make it look nice and only return the date, song, and artist
 def display_data(df):
-    headerColor = 'lightgray'
+    header_color = 'lightgray'
     rowEvenColor = 'lightblue'
     rowOddColor = 'white'
 
@@ -137,7 +135,7 @@ def display_data(df):
         header=dict(
             values=[f'<b>{col_name}</b>' for col_name in df.columns],
             line_color='black',
-            fill_color=headerColor,
+            fill_color=header_color,
             align=['left'],
             font=dict(color='black', size=12),
             line=dict(color='black', width=1)
